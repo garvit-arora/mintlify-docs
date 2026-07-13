@@ -1,0 +1,53 @@
+---
+title: Quickstart
+description: Configure DevQuest AI with GitHub OAuth, Azure deployments, and a restricted gateway.
+---
+
+## 1. Configure GitHub OAuth
+
+In `.env`:
+
+```env
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+```
+
+For local development with the current API port:
+
+```text
+Homepage URL: http://localhost:3000
+Callback URL: http://localhost:8010/api/auth/github/callback
+```
+
+## 2. Configure Azure provider
+
+Use an Azure OpenAI-compatible `/openai/v1` endpoint when possible:
+
+```env
+DEVQUEST_PROVIDER_BASE_URL=https://your-resource.openai.azure.com/openai/v1
+DEVQUEST_PROVIDER_API_KEY=your_azure_api_key
+DEVQUEST_PUBLIC_MODELS=devquest-gpt-56-sol,devquest-luna,devquest-deepseek-55
+
+DEVQUEST_GPT_56_SOL_MODEL=gpt-5.6-sol
+DEVQUEST_LUNA_MODEL=luna
+DEVQUEST_DEEPSEEK_55_MODEL=deepseek-5.5
+```
+
+The value on the left is the public DevQuest alias. The value on the right is your private Azure deployment name.
+
+## 3. Start services
+
+```bash
+npm run dev --workspace @devquest/web
+python -m uvicorn apps.api.devquest_api.main:app --port 8010
+```
+
+## 4. Create an API key
+
+Open the dashboard, verify a repository star, and create an API key with up to 3 model aliases.
+
+Raw keys are shown once. Store the key securely.
+
+## 5. Use Codex
+
+Use the `Codex setup` guide to add DevQuest as a custom Responses provider for Codex CLI, VS Code, Cursor, Windsurf, and compatible VS Code forks.

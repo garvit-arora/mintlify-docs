@@ -1,0 +1,28 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "DevQuest AI",
+  "theme": "mint",
+  "colors": {
+    "primary": "#111115",
+    "light": "#ffffff",
+    "dark": "#07090d"
+  },
+  "navigation": [
+    {
+      "group": "Get started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "codex",
+        "models"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/chat-completions",
+        "api-reference/usage"
+      ]
+    }
+  ]
+}
