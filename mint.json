@@ -1,7 +1,8 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "DevQuest AI",
-  "theme": "mint",
+  "theme": "prism",
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#111115",
     "light": "#ffffff",
@@ -20,6 +21,7 @@
     {
       "group": "API Reference",
       "pages": [
+        "api-reference/endpoint-call",
         "api-reference/chat-completions",
         "api-reference/usage"
       ]
