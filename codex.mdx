@@ -8,13 +8,13 @@ description: Use DevQuest AI with Codex CLI and the Codex IDE extension.
 Add this provider to `C:\Users\<USERNAME>\.codex\config.toml`.
 
 ```toml
-model = "devquest-code"
+model = "devquest-gpt-56-sol"
 model_provider = "devquest"
 model_reasoning_effort = "medium"
 
 [model_providers.devquest]
 name = "DevQuest"
-base_url = "https://api.devquest.ai/v1"
+base_url = "https://api.devquest.garvitarora.xyz/v1"
 env_key = "DEVQUEST_API_KEY"
 wire_api = "responses"
 ```
@@ -55,7 +55,9 @@ Codex client -> DevQuest API -> Azure deployment
 
 Local code edits, terminal commands, file inspection, diffs, and approval prompts still happen on the user's computer.
 
-The gateway implements `POST /v1/responses` for Codex-compatible clients, including non-streaming responses, SSE streaming events, tool-call request passthrough, function-call output ingestion, usage reporting, credit checks, and repository-star enforcement. Use medium reasoning for the DevQuest Codex provider.
+The gateway implements `POST /v1/responses` for Codex-compatible clients, including text responses, SSE text streaming, non-streaming function-call output items, function-call output ingestion, usage reporting, credit checks, and repository-star enforcement. Streaming tool-call deltas should be treated as experimental until validated with the exact Codex client version you deploy against. Use medium reasoning for the DevQuest Codex provider.
+
+Use a model alias that is enabled on the user's API key. The dashboard currently offers `devquest-gpt-56-sol`, `devquest-gpt-55`, and `devquest-deepseek-research`, so this guide uses `devquest-gpt-56-sol`.
 
 ## Not included
 

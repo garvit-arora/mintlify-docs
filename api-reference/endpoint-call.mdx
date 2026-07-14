@@ -14,13 +14,13 @@ Use this page after you have starred an approved repository and created an API k
 For production:
 
 ```text
-https://api.devquest.ai/v1
+https://api.devquest.garvitarora.xyz/v1
 ```
 
 For local development:
 
 ```text
-http://localhost:8010/v1
+http://localhost:8000/v1
 ```
 
 ## Environment variable
@@ -40,11 +40,11 @@ export DEVQUEST_API_KEY="dq_live_your_key"
 Use `POST /v1/responses` for Codex-compatible clients and modern response workflows.
 
 ```bash cURL
-curl https://api.devquest.ai/v1/responses \
+curl https://api.devquest.garvitarora.xyz/v1/responses \
   -H "Authorization: Bearer $DEVQUEST_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "devquest-code",
+    "model": "devquest-gpt-56-sol",
     "input": "Explain this repository in three short bullets.",
     "temperature": 0.3,
     "max_output_tokens": 600
@@ -52,14 +52,14 @@ curl https://api.devquest.ai/v1/responses \
 ```
 
 ```ts JavaScript
-const response = await fetch("https://api.devquest.ai/v1/responses", {
+const response = await fetch("https://api.devquest.garvitarora.xyz/v1/responses", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${process.env.DEVQUEST_API_KEY}`,
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    model: "devquest-code",
+    model: "devquest-gpt-56-sol",
     input: "Explain this repository in three short bullets.",
     temperature: 0.3,
     max_output_tokens: 600,
@@ -79,13 +79,13 @@ import os
 import requests
 
 response = requests.post(
-    "https://api.devquest.ai/v1/responses",
+    "https://api.devquest.garvitarora.xyz/v1/responses",
     headers={
         "Authorization": f"Bearer {os.environ['DEVQUEST_API_KEY']}",
         "Content-Type": "application/json",
     },
     json={
-        "model": "devquest-code",
+        "model": "devquest-gpt-56-sol",
         "input": "Explain this repository in three short bullets.",
         "temperature": 0.3,
         "max_output_tokens": 600,
@@ -103,7 +103,7 @@ print(data["output"][0]["content"][0]["text"])
 Use `POST /v1/chat/completions` when you need OpenAI-compatible chat-style messages.
 
 ```bash cURL
-curl https://api.devquest.ai/v1/chat/completions \
+curl https://api.devquest.garvitarora.xyz/v1/chat/completions \
   -H "Authorization: Bearer $DEVQUEST_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -120,12 +120,12 @@ curl https://api.devquest.ai/v1/chat/completions \
 Set `stream` to `true` to receive server-sent events.
 
 ```bash cURL
-curl https://api.devquest.ai/v1/responses \
+curl https://api.devquest.garvitarora.xyz/v1/responses \
   -N \
   -H "Authorization: Bearer $DEVQUEST_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "devquest-code",
+    "model": "devquest-gpt-56-sol",
     "input": "Stream a short setup guide.",
     "stream": true
   }'

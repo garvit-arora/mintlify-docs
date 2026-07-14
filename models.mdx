@@ -10,7 +10,7 @@ DevQuest exposes friendly model aliases while keeping Azure deployment names pri
 Only the aliases listed in `DEVQUEST_PUBLIC_MODELS` are shown to users and allowed on API keys.
 
 ```env
-DEVQUEST_PUBLIC_MODELS=devquest-gpt-56-sol,devquest-luna,devquest-deepseek-55
+DEVQUEST_PUBLIC_MODELS=devquest-gpt-56-sol,devquest-gpt-55,devquest-deepseek-research
 ```
 
 Users can attach at most 3 aliases to one key.
@@ -22,6 +22,8 @@ The backend can map these aliases to Azure deployments:
 | DevQuest alias | Env variable | Example deployment |
 | --- | --- | --- |
 | `devquest-gpt-56-sol` | `DEVQUEST_GPT_56_SOL_MODEL` | `gpt-5.6-sol` |
+| `devquest-gpt-55` | `DEVQUEST_GPT_55_MODEL` | `gpt-5.5` |
+| `devquest-deepseek-research` | `DEVQUEST_DEEPSEEK_RESEARCH_MODEL` | `deepseek-research` |
 | `devquest-luna` | `DEVQUEST_LUNA_MODEL` | `luna` |
 | `devquest-deepseek-55` | `DEVQUEST_DEEPSEEK_55_MODEL` | `deepseek-5.5` |
 | `devquest-fast` | `DEVQUEST_FAST_MODEL` | `gpt-4o-mini` |
@@ -35,5 +37,5 @@ The backend can map these aliases to Azure deployments:
 ## List public models
 
 ```bash
-curl http://localhost:8010/v1/models
+curl http://localhost:8000/v1/models
 ```
